@@ -104,6 +104,7 @@ body::-webkit-scrollbar {
   opacity: 0;
   animation: slideLeft 1s ease forwards;
   animation-delay: 1s;
+  color: #3cf;
 }
 
 .home-content p {

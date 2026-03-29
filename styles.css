@@ -240,7 +240,9 @@ body::-webkit-scrollbar {
   width: 410px;
   height: 410px;
   opacity: 0;
-  animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+  animation:
+    zoomIn 1s ease forwards,
+    floatImage 4s ease-in-out infinite;
   animation-delay: 2.1s, 3.1s;
 }
 
@@ -496,7 +498,7 @@ footer {
     order: 3;
     width: 100%;
   }
-  #about {
+  #services {
     margin-top: 0;
   }
   .navbar .toggle {
@@ -505,25 +507,23 @@ footer {
     order: 1;
     display: block;
   }
-  
+
   .show .navItem {
     display: block;
     order: 3;
   }
 
-.navbar.show {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  background-color: #0c1022;
-  display: flex;
-  flex-direction: column;
-}
+  .navbar.show {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #0c1022;
+    display: flex;
+    flex-direction: column;
+  }
 
-.navItem {
-  margin: 10px 0;
-}
-
-
+  .navItem {
+    margin: 10px 0;
+  }
 }

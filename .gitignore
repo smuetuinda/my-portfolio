@@ -7,3 +7,17 @@
 
 # Ignore ZIP files
 *.zip
+
+# Ignore Excel files
+*.xls
+*.xlsx 
+
+# Ignore PowerPoint files
+*.ppt
+*.pptx
+
+# Ignore text files
+*.txt   
+
+# Ignore images
+*.jpeg

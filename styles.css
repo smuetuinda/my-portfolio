@@ -366,7 +366,7 @@ body::-webkit-scrollbar {
   position: absolute;
   left: 50%;
   top: 30px;
-  transform: translateX(-50%);
+  transform: translateY(-9%) translateX(-50%);
   max-width: 350px;
   object-fit: cover;
 }
@@ -763,8 +763,9 @@ body::-webkit-scrollbar {
   transition: opacity 0.2s;
 }
 
-.contact-item a:hover {
+.contact-item:hover {
   opacity: 0.7;
+  cursor: pointer;
 }
 
 .social-icons {
@@ -901,9 +902,6 @@ footer {
   .home-img {
     width: 280px;
     height: 280px;
-  }
-  img {
-    object-fit: fill;
   }
 
   .glowing-circle .image,

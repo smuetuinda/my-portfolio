@@ -15,7 +15,13 @@
       rel="stylesheet"
     />
   </head>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
+  <script>
+    (function () {
+      emailjs.init("chbfxVjw-UDEcnH7J");
+    })();
+  </script>
   <body>
     <header class="header">
       <a href="#home" class="logo">MrKee.</a>
@@ -82,7 +88,7 @@
           African son with a fiery ambition for Electrical Engineering. Beyond
           his career pursuits, Stanny is a man of many talents and interests.
         </p>
-        <a href="#" download class="btn">Request CV</a>
+        <a href="#" class="btn" id="hireBtn">Hire Me!</a>
       </div>
 
       <div class="home-img">
@@ -95,6 +101,80 @@
         </div>
       </div>
     </section>
+
+    <div id="hireModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <h2>Let's Work Together</h2>
+
+        <form class="hire-form" id="hireForm">
+          <div class="input-box">
+            <label>Job Title</label>
+            <input
+              type="text"
+              name="job_title"
+              placeholder="e.g. Electrical Engineer"
+              required
+            />
+          </div>
+
+          <div class="input-box">
+            <label>Role Description</label>
+            <textarea
+              name="description"
+              placeholder="Briefly describe the role, responsibilities, or project..."
+              rows="4"
+              required
+            ></textarea>
+          </div>
+
+          <div class="input-box">
+            <label>Preferred Start Date</label>
+            <input type="date" name="start_date" id="startDate" required />
+          </div>
+
+          <div class="input-box">
+            <label>Employer Name</label>
+            <input
+              type="text"
+              name="employer_name"
+              placeholder="Company Name"
+              required
+            />
+          </div>
+
+          <div class="input-box">
+            <label>Email Address</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+            />
+          </div>
+
+          <div class="input-box">
+            <label>Request CV</label>
+            <select name="cv_request">
+              <option>Yes, send me your CV</option>
+              <option>No</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn">Submit</button>
+        </form>
+        <div
+          id="successMessage"
+          style="display: none; text-align: center; margin-top: 20px"
+        >
+          <h3 style="color: var(--primary)">Request Sent Successfully!</h3>
+          <p style="color: var(--text-muted)">
+            I’ll get back to you as soon as possible.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <!-- SKILLS -->
     <section class="full-screen" id="skills">

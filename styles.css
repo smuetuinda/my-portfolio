@@ -123,6 +123,7 @@ body::-webkit-scrollbar {
   color: var(--text);
   cursor: pointer;
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 /* ── Home ─────────────────────────────────────── */
@@ -265,12 +266,13 @@ body::-webkit-scrollbar {
   animation-delay: 2.1s;
 }
 .home-sci a:nth-child(2),
-.home-sci a:nth-child(3) {
+.home-sci a:nth-child(3),
+.home-sci a:nth-child(4) {
   opacity: 0;
   animation: slideRight 1s ease forwards;
   animation-delay: 2.1s;
 }
-.home-sci a:nth-child(4) {
+.home-sci a:nth-child(5) {
   opacity: 0;
   animation: slideTop 1s ease forwards;
   animation-delay: 2.1s;
@@ -367,6 +369,137 @@ body::-webkit-scrollbar {
   transform: translateX(-50%);
   max-width: 350px;
   object-fit: cover;
+}
+
+/* ── Modal (Full Screen - Themed) ─────────────── */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  overflow-y: auto;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Content behaves like a section */
+.modal-content {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 10% 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heading styled like your sections */
+.modal-content h2 {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.modal-content h2::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 3px;
+  margin: 10px auto 0;
+}
+
+/* Close button styled */
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 28px;
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.close:hover {
+  transform: rotate(90deg);
+  color: var(--accent);
+}
+
+/* Form container */
+.hire-form {
+  width: 100%;
+  max-width: 600px;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  animation: slideTop 0.6s ease;
+}
+
+/* Input fields */
+.input-box {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+}
+
+.input-box input,
+.input-box textarea,
+.input-box select {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+/* Focus glow effect */
+.input-box input:focus,
+.input-box textarea:focus,
+.input-box select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(51, 204, 255, 0.3);
+}
+
+/* Dropdown fix (dark theme) */
+.input-box select option {
+  background: var(--bg-card);
+  color: var(--text);
+}
+
+/* Submit button spacing */
+.hire-form .btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Smooth entrance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* ── Sections (shared) ────────────────────────── */
@@ -768,6 +901,9 @@ footer {
   .home-img {
     width: 280px;
     height: 280px;
+  }
+  img {
+    object-fit: fill;
   }
 
   .glowing-circle .image,

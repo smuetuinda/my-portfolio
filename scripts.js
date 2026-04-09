@@ -15,6 +15,61 @@ toggler.addEventListener('click', () => {
   home.style.marginTop = isOpen ? `${navbar.offsetHeight}px` : '0';
 });
 
+const modal = document.getElementById("hireModal");
+const btn = document.getElementById("hireBtn");
+const closeBtn = document.querySelector(".close");
+
+// Open modal
+btn.onclick = function(e) {
+  e.preventDefault();
+  modal.style.display = "block";
+}
+
+const dateInput = document.getElementById("startDate");
+
+dateInput.addEventListener("change", function () {
+  const date = new Date(this.value);
+  const formatted = date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+  this.type = "text";
+  this.value = formatted;
+});
+
+// Close modal (X)
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+}
+
+// Close when clicking outside
+window.onclick = function(e) {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
+const form = document.getElementById("hireForm");
+const successMsg = document.getElementById("successMessage");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  form.querySelector("button[type='submit']").innerText = "Sending...";
+
+  emailjs.sendForm("service_rzwi3qw", "template_47u5h57", this)
+    .then(() => {
+      successMsg.style.display = "block";
+      form.reset();
+      form.querySelector("button[type='submit']").innerText = "Submit";
+    })
+    .catch((error) => {
+      form.querySelector("button[type='submit']").innerText = "Submit";
+      alert("Failed to send. Please try again.");
+      console.error(error);
+    });
+});
+
 /* ── Close menu on nav link click ───────────── */
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
